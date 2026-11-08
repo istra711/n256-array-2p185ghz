@@ -56,7 +56,39 @@ BOARD_MM = 340.0                     # aperture 274 mm + 0.2 lambda margin
 PORT_R_OHM = 50.0
 COPPER_UM = 35.0
 
-VARIANTS = ("element", "embedded", "broadside")
+VARIANTS = ("element", "embedded", "broadside", "scan")
+
+#: beam steering angles (deg, E plane) for the full-wave sweep animation
+SWEEP_ANGLES_DEG = [-45.0, -30.0, -15.0, 0.0, 15.0, 30.0, 45.0]
+
+
+def sweep_tag(theta_deg: float) -> str:
+    a = int(round(theta_deg))
+    if a < 0:
+        return f"m{abs(a):02d}"
+    if a > 0:
+        return f"p{a:02d}"
+    return "000"
+
+
+def scan_phases_deg(theta_deg: float, phi_deg: float = 0.0) -> dict[int, float]:
+    """Progressive element phases for a beam at (theta, phi).
+
+    openEMS uses exp(+j*omega*t); a wave travelling in +x carries exp(-j*k*x),
+    so the element at x_n must lead by -k0*x_n*sin(theta).  Verified by
+    simulation in the 77 GHz study.
+    """
+    th = math.radians(theta_deg)
+    ph = math.radians(phi_deg)
+    phases: dict[int, float] = {}
+    for j in range(N_Y):
+        for i in range(N_X):
+            x, y = element_xy(i, j)
+            phase = (-360.0 / LAMBDA0_MM
+                     * (x * math.sin(th) * math.cos(ph)
+                        + y * math.sin(th) * math.sin(ph)))
+            phases[port_number(i, j)] = phase
+    return phases
 
 # ---------------------------------------------------------------------------
 # mesh, boundary, NF2FF, dumps
@@ -241,20 +273,30 @@ def _primitives(variant: str) -> list[dict[str, Any]]:
     return prims
 
 
-def _ports(variant: str) -> list[dict[str, Any]]:
+def _ports(variant: str, theta_deg: float | None = None) -> list[dict[str, Any]]:
     if variant == "element":
         return [_port_dict(1, -PATCH_L_MM / 2.0 + FEED_INSET_MM, 0.0, True)]
+    if variant == "scan":
+        if theta_deg is None:
+            raise ValueError("variant 'scan' needs theta_deg")
+        phases = scan_phases_deg(theta_deg)
+    else:
+        phases = {}
     ports = []
     for j in range(N_Y):
         for i in range(N_X):
             n = port_number(i, j)
             x, y = port_xy(n)
-            excite = variant == "broadside" or (variant == "embedded" and n == 6)
-            ports.append(_port_dict(n, x, y, excite))
+            if variant in ("broadside", "scan"):
+                excite, phase = True, phases.get(n, 0.0)
+            else:
+                excite = variant == "embedded" and n == 6
+                phase = 0.0
+            ports.append(_port_dict(n, x, y, excite, phase))
     return ports
 
 
-def _notes(variant: str) -> str:
+def _notes(variant: str, theta_deg: float | None = None) -> str:
     common = (
         f"4x4 patch array, 3GPP n256 (2170-2200 MHz), RO4003C "
         f"(h={SUBSTRATE_H_MM} mm, eps_r={SUBSTRATE_EPS_R}, "
@@ -269,6 +311,8 @@ def _notes(variant: str) -> str:
                      "and coupling column S*n6."),
         "broadside": (" 16 ports excited in phase - 4x4 broadside pattern "
                       "including mutual coupling."),
+        "scan": (" 16 ports with progressive phase for a beam steered to "
+                 f"theta={theta_deg:g} deg (E plane)."),
     }[variant]
     return common + extra
 
@@ -284,9 +328,12 @@ def _kicad_block(half: float) -> dict[str, Any]:
             "filename": ""}
 
 
-def project_dict(name: str, variant: str) -> dict[str, Any]:
+def project_dict(name: str, variant: str,
+                 theta_deg: float | None = None) -> dict[str, Any]:
     if variant not in VARIANTS:
         raise ValueError(f"unknown variant {variant!r}")
+    if variant == "scan" and theta_deg is None:
+        raise ValueError("variant 'scan' needs theta_deg")
     return {
         "name": name,
         "version": 1,
@@ -301,7 +348,7 @@ def project_dict(name: str, variant: str) -> dict[str, Any]:
              "tand": SUBSTRATE_TAND, "color": [0.2, 0.5, 0.85, 0.6]},
         ],
         "assignments": [],
-        "ports": _ports(variant),
+        "ports": _ports(variant, theta_deg),
         "dumps": [_dump_dict(d) for d in DUMPS],
         "nf2ff": {
             "enabled": True, "box_mode": "manual",
@@ -338,7 +385,7 @@ def project_dict(name: str, variant: str) -> dict[str, Any]:
         "gerber": _gerber_block(BOARD_MM / 2.0),
         "kicad": _kicad_block(BOARD_MM / 2.0),
         "cst": {"source": "", "enabled": False},
-        "notes": _notes(variant),
+        "notes": _notes(variant, theta_deg),
         "primitives": _primitives(variant),
     }
 

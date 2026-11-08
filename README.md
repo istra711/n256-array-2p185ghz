@@ -47,6 +47,42 @@ P6 driven) and the fully driven broadside array.
   <img src="docs/figures/fig05_broadside.png" alt="Broadside array pattern" width="900">
 </p>
 
+## Beam steering
+
+Six additional FDTD runs steer the beam with a progressive port phase
+(90° per element gives 30°); the 0° frame reuses the broadside run.  The
+animation is available as animated **WebP** (inline below), **GIF** and **MP4**.
+
+<p align="center">
+  <img src="docs/figures/anim_beam_steer.webp" alt="Beam steering animation" width="820">
+</p>
+
+| nominal θ₀ | peak θ | peak φ | gain |
+|---|---|---|---|
+| −45° | 28° | 180° | 16.48 dBi |
+| −30° | 22° | 180° | 17.52 dBi |
+| −15° | 12° | 180° | 18.26 dBi |
+| 0° | 0° | – | 18.71 dBi |
+| +15° | 12° | 0° | 18.19 dBi |
+| +30° | 22° | 0° | 17.39 dBi |
+| +45° | 28° | 0° | 16.36 dBi |
+
+<p align="center">
+  <img src="docs/figures/fig06_beam_sweep.png" alt="E-plane cuts of all steering angles" width="860">
+</p>
+
+The beam follows the nominal angle but lags increasingly (3° at ±15°, 8° at
+±30°, 17° at ±45°): the element pattern falls off towards the horizon and pulls
+the product maximum back towards broadside.  The peak gain drops from 18.71 dBi
+(broadside) to 16.36 dBi at +45°, i.e. about 2.3 dB of scan loss – consistent
+with the 3–4 dB assumed in the sizing study.
+
+| File | Format |
+|---|---|
+| [`anim_beam_steer.webp`](docs/figures/anim_beam_steer.webp) | animated WebP, inline on GitHub |
+| [`anim_beam_steer.gif`](docs/figures/anim_beam_steer.gif) | GIF, universal fallback |
+| [`anim_beam_steer.mp4`](docs/figures/anim_beam_steer.mp4) | H.264, for download |
+
 ## What the full-wave run added to the sizing study
 
 1. **The Hammerstad length is only a start.** With the inset present the
@@ -87,9 +123,13 @@ make_project.py     writes the three .fcsim.json projects
 validate_project.py pre-run mesh/collision checks
 run_headless.py     openEMS runner (VisualopenEMS headless)
 plot_results.py     S-parameters + NF2FF -> figures and docs/results.json
+make_sweep.py       writes the seven beam-steering projects
+run_sweep.py        runs the sweep, archives docs/sweep/*.npz
+make_animation.py   builds GIF / WebP / MP4 + figure 06
 build_docs.py       English and German ODT reports (+ PDF)
 run_all.py          end-to-end runner with skip logic
-docs/figures/       figures 01..05
+docs/figures/       figures 01..06 + anim_beam_steer.{webp,gif,mp4}
+docs/sweep/         archived 2.185 GHz patterns of the steering sweep
 docs/results.json   every number used in the report
 docs/n256_array_2p185ghz_en.odt/.pdf   report, English (primary)
 docs/n256_array_2p185ghz_de.odt/.pdf   report, German (secondary)
@@ -103,7 +143,10 @@ python validate_project.py
 python run_headless.py patch_element_2p2ghz.fcsim.json
 python run_headless.py array_4x4_2p2ghz.fcsim.json
 python run_headless.py array_4x4_broadside_2p2ghz.fcsim.json
+python make_sweep.py
+python run_sweep.py
 python plot_results.py
+python make_animation.py
 python build_docs.py
 ```
 

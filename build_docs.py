@@ -14,6 +14,8 @@ import sys
 from datetime import date
 from pathlib import Path
 
+import numpy as np
+
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / "tools"))
 sys.path.insert(0, str(HERE))
@@ -333,7 +335,46 @@ def build(lang: str) -> Path:
         "Referenz."))
 
     # ------------------------------------------------------------- 6
-    r.h1("6", T("Discussion and next steps", "Diskussion und nächste Schritte"))
+    sweep = []
+    for p in sorted((DOCS / "sweep").glob("scan_*.npz")):
+        d = np.load(p)
+        sweep.append((float(d["steer_deg"]), float(d["peak_theta_deg"]),
+                      float(d["peak_phi_deg"]), float(d["peak_gain_dbi"])))
+    sweep.sort()
+    if sweep:
+        r.h1("6", T("Beam steering", "Strahlschwenkung"))
+        r.p(T(
+            f"Six additional FDTD runs steer the beam with a progressive port "
+            f"phase (90° per element gives 30°); the 0° frame is "
+            f"the existing broadside run.  Figure 6 shows the E-plane cuts of "
+            f"all angles; the animation (`anim_beam_steer.gif`, also `.webp` "
+            f"and `.mp4`) is included in the repository.",
+            f"Sechs zusätzliche FDTD-Läufe schwenken die Keule über eine "
+            f"progressive Portphase (90° pro Element ergeben 30°); das "
+            f"0°-Bild ist der vorhandene Broadside-Lauf.  Bild 6 zeigt die "
+            f"E-Ebenen aller Winkel; die Animation (`anim_beam_steer.gif`, "
+            f"auch `.webp` und `.mp4`) liegt im Repository."))
+        r.table(
+            T("Peak direction versus nominal steering angle at 2.185 GHz.",
+              "Maximum-Richtung über dem Sollwinkel bei 2,185 GHz."),
+            [T("nominal θ₀", "Soll θ₀"), T("peak θ", "Maximum θ"),
+             T("peak φ", "Maximum φ"), T("gain", "Gewinn")],
+            [[f"{s:+.0f}°", f"{t:.0f}°", f"{p:.0f}°", f"{g:.2f} dBi"]
+             for s, t, p, g in sweep],
+            widths=[3.4, 3.4, 3.4, 4.0],
+            source=T("Signed peak: negative angles appear at φ = 180°.",
+                     "Vorzeichenbehaftetes Maximum: negative Winkel liegen bei "
+                     "φ = 180°."))
+        r.figure(str(FIG / "fig06_beam_sweep.png"),
+                 T("Full-wave beam steering: signed E-plane cuts of all runs.",
+                   "Vollwellen-Strahlschwenkung: vorzeichenbehaftete "
+                   "E-Ebenen-Schnitte aller Läufe."), 16.0)
+        r.figure(str(FIG / "anim_beam_steer_frame.png"),
+                 T("Single frame of the animation (θ₀ = +30°).",
+                   "Einzelbild der Animation (θ₀ = +30°)."), 14.0)
+
+    # ------------------------------------------------------------- 7
+    r.h1("7", T("Discussion and next steps", "Diskussion und nächste Schritte"))
     r.bullets([
         T("The probe feed is a modelling abstraction for independent element "
           "excitation.  A product would use a corporate microstrip feed; its "
@@ -363,15 +404,18 @@ def build(lang: str) -> Path:
           "Karosserieeinfluss auf Diagramm und Rückkeule quantifizieren."),
     ])
 
-    # ------------------------------------------------------------- 7
-    r.h1("7", T("Reproduction", "Reproduktion"))
+    # ------------------------------------------------------------- 8
+    r.h1("8", T("Reproduction", "Reproduktion"))
     r.code(
         "python make_project.py                      # three .fcsim.json\n"
         "python validate_project.py                  # mesh checks\n"
         "python run_headless.py patch_element_2p2ghz.fcsim.json\n"
         "python run_headless.py array_4x4_2p2ghz.fcsim.json\n"
         "python run_headless.py array_4x4_broadside_2p2ghz.fcsim.json\n"
+        "python make_sweep.py                        # steering projects\n"
+        "python run_sweep.py                         # steering runs\n"
         "python plot_results.py                      # figures + results.json\n"
+        "python make_animation.py                    # GIF / WebP / MP4\n"
         "python build_docs.py                        # this report (EN + DE)")
     r.p(T(
         "The element runs take about 15 min each (19k timesteps, 1.0 M cells); "

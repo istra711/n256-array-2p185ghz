@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 *.log
 work_*/
+sweep_logs/
+sweep_frames/

@@ -1,0 +1,1030 @@
+{
+  "name": "scan_p45_2p2ghz",
+  "version": 1,
+  "geometry_files": [],
+  "materials": [
+    {
+      "name": "copper",
+      "kind": "pec",
+      "epsilon": 1.0,
+      "permeability": 1.0,
+      "kappa": 0.0,
+      "tand": 0.0,
+      "color": [
+        0.85,
+        0.55,
+        0.2,
+        1.0
+      ]
+    },
+    {
+      "name": "ro4003c",
+      "kind": "dielectric",
+      "epsilon": 3.55,
+      "permeability": 1.0,
+      "kappa": 0.001165124023,
+      "tand": 0.0027,
+      "color": [
+        0.2,
+        0.5,
+        0.85,
+        0.6
+      ]
+    }
+  ],
+  "assignments": [],
+  "ports": [
+    {
+      "name": "P1",
+      "type": "lumped",
+      "start": [
+        -109.50359,
+        -102.90359,
+        0.0
+      ],
+      "stop": [
+        -109.50359,
+        -102.90359,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": 190.91883092036787,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P2",
+      "type": "lumped",
+      "start": [
+        -40.901197,
+        -102.90359,
+        0.0
+      ],
+      "stop": [
+        -40.901197,
+        -102.90359,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": 63.63961030678929,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P3",
+      "type": "lumped",
+      "start": [
+        27.701197,
+        -102.90359,
+        0.0
+      ],
+      "stop": [
+        27.701197,
+        -102.90359,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": -63.63961030678929,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P4",
+      "type": "lumped",
+      "start": [
+        96.30359,
+        -102.90359,
+        0.0
+      ],
+      "stop": [
+        96.30359,
+        -102.90359,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": -190.91883092036787,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P5",
+      "type": "lumped",
+      "start": [
+        -109.50359,
+        -34.301197,
+        0.0
+      ],
+      "stop": [
+        -109.50359,
+        -34.301197,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": 190.91883092036787,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P6",
+      "type": "lumped",
+      "start": [
+        -40.901197,
+        -34.301197,
+        0.0
+      ],
+      "stop": [
+        -40.901197,
+        -34.301197,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": 63.63961030678929,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P7",
+      "type": "lumped",
+      "start": [
+        27.701197,
+        -34.301197,
+        0.0
+      ],
+      "stop": [
+        27.701197,
+        -34.301197,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": -63.63961030678929,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P8",
+      "type": "lumped",
+      "start": [
+        96.30359,
+        -34.301197,
+        0.0
+      ],
+      "stop": [
+        96.30359,
+        -34.301197,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": -190.91883092036787,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P9",
+      "type": "lumped",
+      "start": [
+        -109.50359,
+        34.301197,
+        0.0
+      ],
+      "stop": [
+        -109.50359,
+        34.301197,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": 190.91883092036787,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P10",
+      "type": "lumped",
+      "start": [
+        -40.901197,
+        34.301197,
+        0.0
+      ],
+      "stop": [
+        -40.901197,
+        34.301197,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": 63.63961030678929,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P11",
+      "type": "lumped",
+      "start": [
+        27.701197,
+        34.301197,
+        0.0
+      ],
+      "stop": [
+        27.701197,
+        34.301197,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": -63.63961030678929,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P12",
+      "type": "lumped",
+      "start": [
+        96.30359,
+        34.301197,
+        0.0
+      ],
+      "stop": [
+        96.30359,
+        34.301197,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": -190.91883092036787,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P13",
+      "type": "lumped",
+      "start": [
+        -109.50359,
+        102.90359,
+        0.0
+      ],
+      "stop": [
+        -109.50359,
+        102.90359,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": 190.91883092036787,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P14",
+      "type": "lumped",
+      "start": [
+        -40.901197,
+        102.90359,
+        0.0
+      ],
+      "stop": [
+        -40.901197,
+        102.90359,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": 63.63961030678929,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P15",
+      "type": "lumped",
+      "start": [
+        27.701197,
+        102.90359,
+        0.0
+      ],
+      "stop": [
+        27.701197,
+        102.90359,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": -63.63961030678929,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    },
+    {
+      "name": "P16",
+      "type": "lumped",
+      "start": [
+        96.30359,
+        102.90359,
+        0.0
+      ],
+      "stop": [
+        96.30359,
+        102.90359,
+        1.524
+      ],
+      "resistance": 50.0,
+      "inductance": 0.0,
+      "capacitance": 0.0,
+      "direction": "z",
+      "excite_port": true,
+      "excite_phase_deg": -190.91883092036787,
+      "active": true,
+      "prop_direction": "",
+      "exc_direction": "",
+      "mesh_dirs": "xy",
+      "metal_edge_res": null,
+      "lumped_width": "line",
+      "metal": "",
+      "wg_a": 0.0,
+      "wg_b": 0.0,
+      "wg_mode": "TE10",
+      "reverse": false
+    }
+  ],
+  "dumps": [
+    {
+      "name": "E_xz",
+      "quantity": "E",
+      "start": [
+        -200.0,
+        0.0,
+        -30.0
+      ],
+      "stop": [
+        200.0,
+        0.0,
+        120.0
+      ],
+      "frequency_domain": true,
+      "frequency": 2185000000.0,
+      "sub_sampling": [
+        1,
+        1,
+        1
+      ],
+      "enabled": true,
+      "file_type": 1,
+      "dump_mode": 1,
+      "frequencies": null
+    },
+    {
+      "name": "E_near",
+      "quantity": "E",
+      "start": [
+        -200.0,
+        -200.0,
+        20.0
+      ],
+      "stop": [
+        200.0,
+        200.0,
+        20.0
+      ],
+      "frequency_domain": true,
+      "frequency": 2185000000.0,
+      "sub_sampling": [
+        1,
+        1,
+        1
+      ],
+      "enabled": true,
+      "file_type": 1,
+      "dump_mode": 1,
+      "frequencies": null
+    }
+  ],
+  "nf2ff": {
+    "enabled": true,
+    "box_mode": "manual",
+    "start": [
+      -190.0,
+      -190.0,
+      -20.0
+    ],
+    "stop": [
+      190.0,
+      190.0,
+      110.0
+    ],
+    "center": [
+      0.0,
+      0.0,
+      0.762
+    ],
+    "radius": 1.0,
+    "frequencies": [
+      2170000000.0,
+      2180000000.0,
+      2185000000.0,
+      2195000000.0,
+      2200000000.0
+    ],
+    "freq_mode": "list",
+    "freq_count": 5,
+    "theta_steps": 91,
+    "phi_steps": 181
+  },
+  "mesh": {
+    "preset": "high",
+    "drawing_unit": "mm",
+    "start_frequency": 2000000000.0,
+    "stop_frequency": 2400000000.0,
+    "target_frequency": 2185000000.0,
+    "refined_cellsize": 2.5,
+    "min_cellsize": 1.5,
+    "max_cellsize": 8.0,
+    "min_cellsize_z": 0.4,
+    "cells_per_wavelength": 20.0,
+    "max_grading_ratio": 1.6,
+    "smooth_metal_edge": "one_third_two_thirds",
+    "use_circle_detection": false,
+    "use_arc_detection": false,
+    "handle_closely_placed_edges": true,
+    "num_lines": 5,
+    "dirs": "xyz",
+    "align_coordinates": true,
+    "diagnose_cell_sources": true,
+    "manual_mesh_lines": null,
+    "manual_mesh_lines_removed": null,
+    "mesh_repairs": null,
+    "enforce_min_cellsize": false,
+    "accepted_cells": null,
+    "add_graded_mesh_lines_at_material_transitions": true,
+    "coord_system": "cartesian",
+    "excitation": "gauss",
+    "excitation_file": ""
+  },
+  "boundary": {
+    "xmin": "PML",
+    "xmax": "PML",
+    "ymin": "PML",
+    "ymax": "PML",
+    "zmin": "PML",
+    "zmax": "PML",
+    "pml_size": 8,
+    "air_margin": [
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      25.0,
+      120.0
+    ]
+  },
+  "sim": {
+    "end_criteria": 0.0001,
+    "max_timesteps": 40000,
+    "max_time": null,
+    "nf2ff_enabled": true,
+    "field_dumps_enabled": true,
+    "num_threads": 0,
+    "output_dir": "",
+    "antenna_mode": false,
+    "antenna_pml_lambda": 0.5,
+    "antenna_nf2ff_lambda": 0.5,
+    "antenna_cells_per_wavelength": 15.0,
+    "verbose": 2,
+    "engine": "",
+    "setup_only": false,
+    "cleanup": true,
+    "disable_dumps": false,
+    "dump_statistics": false,
+    "debug_material": false,
+    "debug_pec": false,
+    "debug_boxes": false,
+    "debug_operator": false,
+    "debug_csx": false,
+    "show_probe_discretization": false,
+    "legacy_hdf5_dumps": false,
+    "over_sampling": null,
+    "time_step_factor": null,
+    "time_step_method": null,
+    "cell_constant_material": false
+  },
+  "mesh2freecad": {
+    "export_step": false,
+    "fcstd_object_type": "mesh",
+    "voxel_grid": true,
+    "voxel_grid_mode": "all",
+    "include_sheets": true,
+    "export_ports": true,
+    "keep_temp": false
+  },
+  "gerber": {
+    "enabled": false,
+    "edge_mm": 170.0,
+    "margin_mm": 2.0,
+    "layers": [],
+    "filename": ""
+  },
+  "kicad": {
+    "enabled": false,
+    "board_width_mm": 340.0,
+    "board_height_mm": 340.0,
+    "thickness_mm": 1.524,
+    "filename": ""
+  },
+  "cst": {
+    "source": "",
+    "enabled": false
+  },
+  "notes": "4x4 patch array, 3GPP n256 (2170-2200 MHz), RO4003C (h=1.524 mm, eps_r=3.55, tan_d=0.0027); patch 33.00 x 45.50 mm (L along x), pitch 68.60 mm = lambda0/2, board 340 x 340 mm, probe feed 9.90 mm inset, 50 ohm lumped ports. 16 ports with progressive phase for a beam steered to theta=45 deg (E plane).",
+  "primitives": [
+    {
+      "kind": "box",
+      "name": "substrate",
+      "material": "ro4003c",
+      "priority": 10,
+      "start": [
+        -170.0,
+        -170.0,
+        0.0
+      ],
+      "stop": [
+        170.0,
+        170.0,
+        1.524
+      ],
+      "edges2grid": ""
+    },
+    {
+      "kind": "box",
+      "name": "ground",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -170.0,
+        -170.0,
+        0.0
+      ],
+      "stop": [
+        170.0,
+        170.0,
+        0.0
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_01",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -119.40359,
+        -125.65359,
+        1.524
+      ],
+      "stop": [
+        -86.40359,
+        -80.15359,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_02",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -50.801197,
+        -125.65359,
+        1.524
+      ],
+      "stop": [
+        -17.801197,
+        -80.15359,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_03",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        17.801197,
+        -125.65359,
+        1.524
+      ],
+      "stop": [
+        50.801197,
+        -80.15359,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_04",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        86.40359,
+        -125.65359,
+        1.524
+      ],
+      "stop": [
+        119.40359,
+        -80.15359,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_05",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -119.40359,
+        -57.051197,
+        1.524
+      ],
+      "stop": [
+        -86.40359,
+        -11.551197,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_06",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -50.801197,
+        -57.051197,
+        1.524
+      ],
+      "stop": [
+        -17.801197,
+        -11.551197,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_07",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        17.801197,
+        -57.051197,
+        1.524
+      ],
+      "stop": [
+        50.801197,
+        -11.551197,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_08",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        86.40359,
+        -57.051197,
+        1.524
+      ],
+      "stop": [
+        119.40359,
+        -11.551197,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_09",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -119.40359,
+        11.551197,
+        1.524
+      ],
+      "stop": [
+        -86.40359,
+        57.051197,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_10",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -50.801197,
+        11.551197,
+        1.524
+      ],
+      "stop": [
+        -17.801197,
+        57.051197,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_11",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        17.801197,
+        11.551197,
+        1.524
+      ],
+      "stop": [
+        50.801197,
+        57.051197,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_12",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        86.40359,
+        11.551197,
+        1.524
+      ],
+      "stop": [
+        119.40359,
+        57.051197,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_13",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -119.40359,
+        80.15359,
+        1.524
+      ],
+      "stop": [
+        -86.40359,
+        125.65359,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_14",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        -50.801197,
+        80.15359,
+        1.524
+      ],
+      "stop": [
+        -17.801197,
+        125.65359,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_15",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        17.801197,
+        80.15359,
+        1.524
+      ],
+      "stop": [
+        50.801197,
+        125.65359,
+        1.524
+      ],
+      "edges2grid": "xy"
+    },
+    {
+      "kind": "box",
+      "name": "patch_16",
+      "material": "copper",
+      "priority": 100,
+      "start": [
+        86.40359,
+        80.15359,
+        1.524
+      ],
+      "stop": [
+        119.40359,
+        125.65359,
+        1.524
+      ],
+      "edges2grid": "xy"
+    }
+  ]
+}
