@@ -88,6 +88,8 @@ def build(lang: str) -> Path:
           f"Raster {N(des['pitch_mm'])} mm · Platine {N(des['board_mm'], 0)} mm"),
         style="CoverMeta")
     r.p(date.today().isoformat(), style="CoverMeta")
+    r.p("© 2026 Michael T. — all rights reserved; reuse requires written permission",
+        style="CoverMeta")
 
     r.start_main()
     r.toc()

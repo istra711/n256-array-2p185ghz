@@ -188,3 +188,18 @@ Gewinn bei η = 0,869 – besser als die Aperturschätzung der Sizing-Studie
 
 Berichte: `docs/n256_array_2p185ghz_en.odt` (Englisch, Hauptsprache) und
 `docs/n256_array_2p185ghz_de.odt` (Deutsch), jeweils mit PDF.
+
+---
+
+## License and reuse
+
+© 2026 Michael T. All rights reserved.  The material in this repository
+(source code, models, data, figures and documents) is published for viewing
+and evaluation only.  Any reuse, modification, redistribution or publication,
+in whole or in part, requires prior written permission from the author.
+See [LICENSE](LICENSE).
+
+**Weiternutzung:** Alle Inhalte dieses Repositories sind ausschließlich zur
+Einsicht und Bewertung veröffentlicht. Jede Weiternutzung – auch auszugsweise –
+bedarf der vorherigen schriftlichen Genehmigung des Urhebers (siehe
+[LICENSE](LICENSE)).
