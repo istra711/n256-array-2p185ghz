@@ -193,9 +193,9 @@ Berichte: `docs/n256_array_2p185ghz_en.odt` (Englisch, Hauptsprache) und
 
 ## License and reuse
 
-© 2026 Michael T. All rights reserved.  The material in this repository
+© 2026 Michael T. All rights reserved. The material in this repository
 (source code, models, data, figures and documents) is published for viewing
-and evaluation only.  Any reuse, modification, redistribution or publication,
+and evaluation only. Any reuse, modification, redistribution or publication,
 in whole or in part, requires prior written permission from the author.
 See [LICENSE](LICENSE).
 
